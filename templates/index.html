@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Predict Salary Analysis</title>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron mt-4">
+        <form action="{{url_for('predict')}}" method="POST">
+            <div class="form-group">
+                <label for="">Experience:</label>
+                <input type="number" name='experience' class="form-control" placeholder="Enter Experience In Number"/>
+            </div>
+            <div class="form-group">
+                <label for="">Test Score: </label>
+                <input type="number" name='test_score' class="form-control" placeholder="Enter Test Score In Number"/>
+            </div>
+            <div class="form-group">
+                <label for="">Interview Score</label>
+                <input type="number" name='interview_score' class="form-control" placeholder="Enter Intrview Score In Number"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" name='experience' class="btn btn-success" value="Predict"/>
+            </div>
+        </form>
+    </div>
+
+    {% if prediction_text != None %}
+        <div class="alert alert-success">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>
